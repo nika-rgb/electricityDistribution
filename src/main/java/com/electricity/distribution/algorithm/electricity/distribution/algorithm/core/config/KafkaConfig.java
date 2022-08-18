@@ -29,7 +29,7 @@ public class KafkaConfig {
         properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer);
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
         return new DefaultKafkaConsumerFactory<>(properties,
-                new StringDeserializer(), new JsonDeserializer<>(GraphNodeMessage.class));
+                new StringDeserializer(), new JsonDeserializer<>(GraphNodeMessage.class, false));
     }
 
 
