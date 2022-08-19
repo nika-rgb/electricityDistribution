@@ -47,7 +47,7 @@ services:
     networks:
       - NETWORK
     volumes:
-      - zookeeper
+      - zookeeper:/var/lib/zookeeper/log
 
 
   kafka:
@@ -67,7 +67,7 @@ services:
     networks:
       - NETWORK
     volumes:
-      - kafka
+      - kafka:/var/lib/kafka/data
 
 volumes:
   postgres:

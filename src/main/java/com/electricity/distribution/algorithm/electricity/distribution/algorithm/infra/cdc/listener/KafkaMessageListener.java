@@ -23,7 +23,11 @@ public class KafkaMessageListener {
     private final VerticeRepository verticeRepository;
     private final EdgeRepository edgeRepository;
 
-    @KafkaListener(topics = {"electricityDistributionTopic"}, groupId = "group-electricityDatabase")
+    private final String TOPIC_NAME = "electricityDistributionTopic";
+
+    private final String GROUP_ID = "group-electricityDatabase";
+
+    @KafkaListener(topics = {TOPIC_NAME}, groupId = GROUP_ID)
     public void listenToDataChange(@Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) String key, @Payload GraphNodeMessage message) {
         log.info("Message key {}", key);
         log.info("Message payload {}", message.toString());
